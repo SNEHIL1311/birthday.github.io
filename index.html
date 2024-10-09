@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise! Happy Birthday!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ff4b1f, #ff9068); /* Vibrant red gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            z-index: 10;
+            animation: fadeInContent 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #fff; /* White font color */
+            animation: bounceIn 2s ease-in-out;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #fffae6; /* Light color for better contrast */
+            animation: fadeInMessage 3s ease-in-out;
+        }
+
+        .heart {
+            font-size: 3rem;
+            color: #FF1493;
+            animation: heartbeat 1s infinite ease-in-out;
+        }
+
+        .button-container {
+            margin-top: 40px;
+            animation: fadeInButton 4s ease-in-out;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background: #ff6f61;
+            color: white;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background: #ff7f72;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Teddy Bears */
+        .teddy-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1;
+        }
+
+        .teddy {
+            width: 200px;
+            height: auto;
+            animation: floatTeddy 6s ease-in-out infinite;
+            margin: 0 15px;
+            background-color: transparent;
+            mix-blend-mode: multiply;
+        }
+
+        .teddy:nth-child(odd) {
+            animation-duration: 8s;
+        }
+
+        .teddy:nth-child(even) {
+            animation-duration: 10s;
+        }
+
+        @keyframes floatTeddy {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Balloons */
+        .balloons {
+            position: absolute;
+            bottom: -200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            animation: floatUp 10s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .balloon {
+            width: 150px;
+            height: 200px;
+            border-radius: 50% 50% 60% 60%;
+            background: radial-gradient(circle, #ffebed, #ff9a9e);
+            position: relative;
+            animation: bounceBalloon 4s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(odd) {
+            background: radial-gradient(circle, #fbc2eb, #a18cd1);
+            animation-duration: 5s;
+        }
+
+        .balloon:nth-child(even) {
+            background: radial-gradient(circle, #f6d365, #fda085);
+            animation-duration: 7s;
+        }
+
+        .balloon:before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            width: 3px;
+            height: 70px;
+            background: white;
+            transform: translateX(-50%);
+        }
+
+        @keyframes bounceBalloon {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-70px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Confetti animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #f6d365;
+            opacity: 0;
+            animation: fallConfetti 5s linear infinite;
+        }
+
+        @keyframes fallConfetti {
+            0% {
+                opacity: 1;
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInMessage {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInButton {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Happy Birthday, Koochii!</h1>
+        <p class="message">Wishing you all the happiness and joy in the world on your special day! 🎉 You are the best, and I hope this year brings everything you dream of!</p>
+        <div class="heart">❤️</div>
+
+        <div class="button-container">
+            <a href="koochi.html">Click for a Surprise!</a>
+        </div>
+    </div>
+
+    <!-- Balloons floating up -->
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div> <!-- Added more balloons -->
+        <div class="balloon"></div>
+    </div>
+
+    <!-- Teddy Bears -->
+    <div class="teddy-container">
+        <img src="https://img.freepik.com/premium-vector/cartoon-panda-with-balloons-happy-birthday-vector-illustration_657867-90.jpg" alt="Panda" class="teddy">
+    </div>
+
+    <!-- Confetti Animation -->
+    <div class="confetti">
+        <div class="confetti-piece" style="left: 20%; animation-delay: 0s;"></div>
+        <div class="confetti-piece" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="confetti-piece" style="left: 60%; animation-delay: 2s;"></div>
+        <div class="confetti-piece" style="left: 80%; animation-delay: 3s;"></div>
+        <div class="confetti-piece" style="left: 10%; animation-delay: 0.5s;"></div> <!-- More confetti pieces -->
+        <div class="confetti-piece" style="left: 30%; animation-delay: 1.5s;"></div>
+        <div class="confetti-piece" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="confetti-piece" style="left: 90%; animation-delay: 3.5s;"></div>
+    </div>
+
+</body>
+
+</html>

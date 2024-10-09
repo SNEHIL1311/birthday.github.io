@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px; /* Increased width for better layout */
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #FF6347;
+            animation: pop-in 1.5s ease-out;
+        }
+
+        /* Balloons animation */
+        .balloons {
+            position: fixed;
+            bottom: -150px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .balloon {
+            width: 60px;
+            height: 80px;
+            background-color: rgba(255, 99, 71, 0.7);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            animation: rise 5s infinite ease-in-out;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .balloon:nth-child(1) { left: 10%; animation-delay: 2s; background: #FF69B4; }
+        .balloon:nth-child(2) { left: 15%; animation-delay: 3s; background: #FFD700; }
+        .balloon:nth-child(3) { left: 25%; animation-delay: 4s; background: #32CD32; }
+        .balloon:nth-child(4) { left: 35%; animation-delay: 2s; background: #87CEFA; }
+        .balloon:nth-child(5) { left: 45%; animation-delay: 5s; background: #FF4500; }
+        .balloon:nth-child(6) { left: 55%; animation-delay: 3s; background: #FFB6C1; }
+        .balloon:nth-child(7) { left: 65%; animation-delay: 4s; background: #00FA9A; }
+        .balloon:nth-child(8) { left: 75%; animation-delay: 1s; background: #FF6347; }
+        .balloon:nth-child(9) { left: 85%; animation-delay: 6s; background: #4682B4; }
+        .balloon:nth-child(10) { left: 95%; animation-delay: 4s; background: #DA70D6; }
+
+        @keyframes rise {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-box {
+            flex: 1;
+            min-width: 280px;
+            transition: transform 0.5s ease;
+            perspective: 1000px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+        }
+
+        .image-box:hover img {
+            transform: rotateY(15deg);
+        }
+
+        .text-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            transition: transform 0.5s ease;
+            min-width: 280px;
+        }
+
+        .text-box:hover {
+            transform: rotateX(10deg) scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .subheading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FF4500;
+        }
+
+        /* 3D Pop Animation */
+        @keyframes pop-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Link Styling */
+        a {
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #FF6347;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Balloons floating in background -->
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="container">
+        <div class="title">Happy Birthday Koochi!</div>
+
+        <div class="content">
+            <div class="image-box">
+                <img src="Image1.jpg" alt="Image1">
+            </div>
+            <div class="image-box">
+                <img src="Image2.jpeg" alt="Image2">
+            </div>
+            <div class="image-box">
+                <img src="IMG_20221204_185600.jpg" alt="Image3">
+            </div>
+            <div class="image-box">
+                <img src="Image4.jpg" alt="Birthday Decorations">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="text-box">
+                <div class="subheading"><a href="celeb1.html">Let's Celebrate</a></div>
+                The best birthday decorations to light up your special day.
+            </div>
+
+            <div class="text-box">
+                <div class="subheading"><a href="snail.html">Memories with snail 🐌</a></div>
+                A cake that's as sweet as your birthday wish!
+            </div>
+
+            <div class="text-box">
+                <div class="subheading"><a href="friends.html">Memories with Friends 🫂</a></div>
+                Filled with gifts and surprises to make your day memorable.
+            </div>
+
+            <div class="text-box">
+                <div class="subheading"><a href="personal.html">Padh lo 😏</a></div>
+                Create memories and celebrate with joy and happiness.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

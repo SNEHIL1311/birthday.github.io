@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Birthday Koochii!!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Montserrat" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #8b12dc, #e90949);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+            transition: background 1s ease-in-out;
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -150px;
+            font-size: 3rem;
+            display: inline-block;
+            animation: floatUp 7s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0% { bottom: -150px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 100%; opacity: 0; }
+        }
+
+        .cake {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 25px auto;
+            background: #ce6b07;
+            border-radius: 50% 50% 0 0;
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .cake .velas {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            top: -20px;
+        }
+
+        .cake .fuego {
+            width: 10px;
+            height: 10px;
+            background: #8b12dc;
+            border-radius: 50%;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .cake .bizcocho {
+            background: #fff066;
+            border-radius: 50%;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .cake .cake-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-family: 'Lobster', monospace;
+            color: #700303;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff0080, #ffbf00);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            border-radius: 50px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background 0.5s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #ffbf00, #ff0080);
+            transform: scale(1.1);
+        }
+
+        .message p {
+            font-size: 50px;
+            font-family: 'Lobster', cursive;
+            color: #fff;
+            margin: 0;
+        }
+
+        .message .koochii {
+            font-size: 80px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0080, #ffbf00, #8b12dc);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: animateText 3s infinite;
+        }
+
+        @keyframes animateText {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .wish-message {
+            font-size: 40px;
+            color: #fff;
+            margin-top: 20px;
+            display: none;
+            font-family: cursive;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .banner {
+            position: relative;
+            top: -100px; /* Start hidden above the viewport */
+            width: 100%;
+            background-color: #ffccff; /* Default background color */
+            padding: 10px 0;
+            color: #ff0080; /* Default text color */
+            font-size: 30px;
+            z-index: 0;
+            display: none; /* Initially hidden */
+        }
+
+        .border-balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: red;
+        }
+
+        /* Balloon positions for borders */
+        .border-balloons .top-balloon { top: -50px; left: 50%; }
+        .border-balloons .bottom-balloon { bottom: -50px; left: 50%; }
+        .border-balloons .left-balloon { top: 50%; left: -50px; }
+        .border-balloons .right-balloon { top: 50%; right: -50px; }
+
+        @media screen and (max-width: 768px) {
+            .cake {
+                width: 150px;
+                height: 100px;
+            }
+            .message p {
+                font-size: 30px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio class="song" id="birthday_song" autoplay loop>
+        <source src="hbd.mp3" type="audio/mp3">
+        Your browser doesn't support audio playback.
+    </audio>
+
+    <div class="container">
+        <div class="banner" id="banner">🎉 Happy Birthday Koochii 🎉</div>
+
+        <div class="message">
+            <p>Happy Birthday</p>
+            <p class="koochii">Koochii</p>
+        </div>
+
+        <div class="cake" id="cake">
+            <div class="velas">
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+            </div>
+            <div class="bizcocho"></div>
+            <div class="cake-text">Happy Birthday 
+                Koochii<br/>😺👻</div>
+        </div>
+
+        <div class="wish-message" id="wish_message">
+            <p>🎉 Happy Birthday Koochii! Wishing you love, happiness, and all the best! 🎉</p>
+        </div>
+
+        <div class="navbar">
+            <button id="turn_on">Turn On Lights</button>
+            <button id="play">Play Special Music</button>
+            <button id="banner_coming">Decorate Banner</button>
+            <button id="balloons_flying">Fly Balloons</button>
+            <button id="cake_fadein">Reveal Cake</button>
+            <button id="light_candle">Light Candles</button>
+            <button id="show_wish">Show Wish Message</button>
+        </div>
+
+        <div class="border-balloons" id="border-balloons"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Button for turning on the lights with a glow effect
+            $('#turn_on').click(function() {
+                $('body').css('background', 'radial-gradient(circle, #fff, #ff6666, #ffccff)');
+                // Change font color when lights are turned on
+                $('.message p').css('color', '#000'); // Change message font color
+                $('#banner').css('color', '#000'); // Change banner font color
+                $('.wish-message').css('color', '#000'); // Change wish message font color
+            });
+
+            // Button for playing music
+            $('#play').click(function() {
+                var audio = document.getElementById('birthday_song');
+                audio.play();
+            });
+
+            // Button for flying balloons
+            $('#balloons_flying').click(function() {
+                addMoreBalloons();
+            });
+
+            // Button for showing the cake
+            $('#cake_fadein').click(function() {
+                $('#cake').fadeIn('slow');
+            });
+
+            // Button for lighting the candles
+            $('#light_candle').click(function() {
+                $('.fuego').css('background', '#ffbf00');
+            });
+
+            // Button for showing the wish message
+            $('#show_wish').click(function() {
+                $('#wish_message').fadeIn('slow');
+            });
+
+            // Button for decorating banner
+            $('#banner_coming').click(function() {
+                $('#banner').slideDown('slow');
+            });
+
+            // Function to add balloons dynamically
+            function addMoreBalloons() {
+                for (var i = 0; i < 20; i++) {
+                    var balloon = $("<div class='balloons'>🎈</div>");
+                    var position = Math.floor(Math.random() * $(window).width());
+                    balloon.css({ 'left': position + 'px' });
+                    $('body').append(balloon);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
